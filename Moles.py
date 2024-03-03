@@ -8,6 +8,8 @@ def main():
     user_element_dropdown = st.selectbox("Choose an Element", periodic_data["Element"])
     if user_element_dropdown:
         mass = st.number_input("Enter the mass of the element (in grams): ")
+        if mass == 0:
+            st.write("Enter a mass greater than zero :rage:")
         if st.button("Calculate Number of Moles"):
             atomic_mass = periodic_data.loc[periodic_data["Element"] == user_element_dropdown, "AtomicMass"].iloc[0]
             numofMoles = mass/atomic_mass
