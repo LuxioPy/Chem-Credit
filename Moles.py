@@ -13,10 +13,6 @@ def main():
             numofMoles = mass/atomic_mass
             st.write(f"There is {numofMoles:.2f}*10^{int(math.log10(numofMoles))} moles of {str(user_element_dropdown)} in {mass:.2f}g")
 
-        
-
-
-
 
 if __name__ == "__main__":
     main()
