@@ -24,24 +24,29 @@ def main():
         total_molar_mass += molar_mass * num_element
         
     mass = st.number_input("Enter the mass of the compound (in grams): ")
-    numOfMoles = mass/total_molar_mass
+    if mass == 0:
+            st.write("Enter a mass greater than zero :rage:")
+    elif mass < 0:
+            st.write("Seirously a negative mass??? :confused:")
+    else:
+        numOfMoles = mass/total_molar_mass
 
-    compound_formula = ""
+        compound_formula = ""
 
-    for element, num_element in zip(elements, numElement):
-        symbol = periodic_data.loc[periodic_data["Element"] == element, "Symbol"].iloc[0]
-        if num_element == 1: 
-            compound_formula += symbol
-        else:
-            compound_formula += f"{symbol}{str(num_element).translate(str.maketrans('0123456789', '₀₁₂₃₄₅₆₇₈₉'))}"
+        for element, num_element in zip(elements, numElement):
+            symbol = periodic_data.loc[periodic_data["Element"] == element, "Symbol"].iloc[0]
+            if num_element == 1: 
+                compound_formula += symbol
+            else:
+                compound_formula += f"{symbol}{str(num_element).translate(str.maketrans('0123456789', '₀₁₂₃₄₅₆₇₈₉'))}"
 
-    if numOfMoles > 0:
-        exponent = int(math.log10(numOfMoles))
-        st.write(f"There is {numOfMoles:.2f}*10^{exponent} moles of {compound_formula} in {mass:.2f}g")
+        if numOfMoles > 0:
+            exponent = int(math.log10(numOfMoles))
+            st.write(f"There is {numOfMoles:.2f}*10^{exponent} moles of {compound_formula} in {mass:.2f}g")
 
-    elif numOfMoles == 0:
-        exponent = 0
-        st.write(f"There is {numOfMoles:.2f} moles of {compound_formula} in {mass:.2f}g")
+        elif numOfMoles == 0:
+            exponent = 0
+            st.write(f"There is {numOfMoles:.2f} moles of {compound_formula} in {mass:.2f}g")
 
 if __name__ == "__main__":
     main()

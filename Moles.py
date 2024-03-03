@@ -10,7 +10,9 @@ def main():
         mass = st.number_input("Enter the mass of the element (in grams): ")
         if mass == 0:
             st.write("Enter a mass greater than zero :rage:")
-        if st.button("Calculate Number of Moles"):
+        elif mass < 0:
+            st.write("Seirously a negative mass??? :confused:")
+        elif st.button("Calculate Number of Moles"):
             atomic_mass = periodic_data.loc[periodic_data["Element"] == user_element_dropdown, "AtomicMass"].iloc[0]
             numofMoles = mass/atomic_mass
             st.write(f"There is {numofMoles:.2f}*10^{int(math.log10(numofMoles))} moles of {str(user_element_dropdown)} in {mass:.2f}g")
