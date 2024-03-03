@@ -35,8 +35,13 @@ for element, num_element in zip(elements, numElement):
     else:
         compound_formula += f"{symbol}{str(num_element).translate(str.maketrans('0123456789', '₀₁₂₃₄₅₆₇₈₉'))}"
 
-st.write(f"There is {numOfMoles:.2f}*10^{int(math.log10(numOfMoles))} moles of {compound_formula} in {mass:.2f}g")
+if numOfMoles > 0:
+    exponent = int(math.log10(numOfMoles))
+    st.write(f"There is {numOfMoles:.2f}*10^{exponent} moles of {compound_formula} in {mass:.2f}g")
 
+else:
+    exponent = 0
+    st.write(f"There is {numOfMoles:.2f} moles of {compound_formula} in {mass:.2f}g")
 
     
 
