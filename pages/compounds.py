@@ -39,7 +39,7 @@ def main():
         exponent = int(math.log10(numOfMoles))
         st.write(f"There is {numOfMoles:.2f}*10^{exponent} moles of {compound_formula} in {mass:.2f}g")
 
-    elif numMoles == 0:
+    elif numOfMoles == 0:
         exponent = 0
         st.write(f"There is {numOfMoles:.2f} moles of {compound_formula} in {mass:.2f}g")
 
