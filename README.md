@@ -1,6 +1,6 @@
 # Moles Calculator and Compound Mole Calculator
 
-These Streamlit applications are designed to calculate the number of moles of an element or compound given certain parameters. 
+Calculate the Moles in any element or compound you wish, a little project for chemistry 😆
 
 ## Moles Calculator
 
